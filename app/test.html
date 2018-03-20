@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <button class="verbutton" type="button" name="button">测试</button>
+    <script src="scripts/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    //点击获取验证码的时候，验证手机号
+    $('.verbutton').on('click',function(){
+      var
+          url = 'http://yearnhome.com/api/User/GetSmsCode',
+
+          data = {'mobile': '18511863162'};
+          console.log(data);
+        $.ajax({
+          url:url,
+          type:'post',
+          dataType:'json',
+          data: "{'mobile': '18511863162'}",
+          contentType:'application/json;charset=utf-8',
+          success:function(responsedata){
+            // window.localStorage.name = phoneNum;
+            // window.localStorage.verCode =
+            console.log(responsedata);
+
+          },
+          error:function(){
+            console.log(data);
+          }
+        });
+
+    })
+    </script>
+  </body>
+</html>

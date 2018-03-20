@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <title>个人中心-优我</title>
+  </head>
+  <body>
+
+    <header class="pc-header">
+      <a href="homepage.html"><img src="img/6.png" alt="后退" width="3%" class="back"></a>
+    </header>
+    <div class="pc-main" id="ConMain">
+      <div class="p-info">
+        <div class="p-info-box">
+          <div class="headportrait">
+            <img src="img/10.png" alt="" width="100%">
+            <p><span>学生</span></p>
+          </div>
+
+          <div class="p-info-detail">
+            <!-- <p class="edit" contenteditable="true">sook@to-x.cn<img src="img/3.png" width="10%" style="display:none"/></p> -->
+            <div class="user-name">
+              <div class="input-group">
+                <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" value="sook@to-x.cn">
+                <!-- <div class="input-group-append" style="display:none">
+                  <span class="input-group-text" id="basic-addon2"><img src="img/3.png" width="70%" /></span>
+                </div> -->
+              </div>
+            </div>
+            <!-- <p class="color-white" data-toggle="modal" data-target="#exampleModalCenter">15201238968</p> -->
+            <button type="button" class="btn btn-primary phonenum" data-toggle="modal" data-target="#exampleModalCenter" style="padding-left:1rem">15201238968</button>
+            <!-- Modal -->
+            <div class="modal fade"  id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>手机号修改为：</p>
+                    <input class="modifynum" type="text" name="" value="">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter1">确定</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <input class="vercode" type="text" name="" value="">
+                    <span class="btn btn-primary vercodebtn">点击获取验证码</span>
+                  </div>
+                  <div class="modal-footer">
+
+                    <button type="button" class="btn btn-primary">确定</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="color-white" style="padding-left:1rem">未实名</p>
+          </div>
+        </div>
+        <div class="p-info-box-fromhp" style="display:none">
+          <a href="login.html" class="btn btn-primary">请登录</a>
+          <!-- <button class="btn btn-primary" type="button" name="button">请登录</button> -->
+        </div>
+      </div>
+      <ul class="classify">
+        <li class=""><a href="exam.html"><img src="img/14.png" alt=""><span>考试库</span></a></li>
+        <li class=""><a href="zerocourse.html"><img src="img/15.png" alt=""><span>0元课堂</span></a></li>
+      </ul>
+      <ul class="list">
+        <li><a href="shopping.html"><img src="img/13.png" width="10%" />我的购物车<img src="img/5.png" width="3%" class="f"/></a></li>
+        <li><a href="setting.html"><img src="img/12.png" width="10%"/>设置<img src="img/5.png" width="3%" class="f"/></a></li>
+      </ul>
+    </div>
+    <script src="scripts/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script src="scripts/popper.min.js" charset="utf-8"></script>
+    <script type="text/javascript"src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript"src="scripts/login.js"></script>
+    <script type="text/javascript">
+      // 在链接中获取手机号值
+      var phonenum = window.localStorage.phonenum;
+      $('.phonenum').text(phonenum)
+      // 根据收到window.localStorage.status的值，0显示未登录，1表示已登录
+      if (window.localStorage.status == 0) {
+        $('.p-info-box').hide();
+        $('.p-info-box-fromhp').show();
+      }else {
+        $('.p-info-box').show();
+        $('.p-info-box-fromhp').hide();
+      }
+      $(function(){
+        $('.form-control').on('focus',function(){
+          $(this).siblings('.input-group-append').show();
+        });
+        $('.form-control').on('blur',function(){
+          $(this).find('.input-group-append').hide();
+        });
+
+      })
+    </script>
+  </body>
+</html>
